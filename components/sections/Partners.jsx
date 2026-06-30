@@ -9,6 +9,7 @@ const partners = [
   { name: "Al Jazirah", image: "/partners/Al-Jazirah-ar-logo.webp" },
   { name: "أبو معطي", image: "/partners/logo-abomoati-updated-01-1024x325.webp" },
   { name: "Karaz Linen", image: "/partners/Copy-of-Karaz-linen-logo-En-Gray.webp" },
+  { name: "شريك", image: "/partners/IMG-3725.webp" },
   { name: "شريك", image: "/partners/images-jpeg.webp" },
   { name: "شريك", image: "/partners/274bdf41cb02.webp" },
   { name: "شريك", image: "/partners/1631380073041.webp" },
