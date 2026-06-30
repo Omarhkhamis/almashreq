@@ -1,0 +1,110 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "aos/dist/aos.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f9faf6;
+  color: #262730;
+  overflow-x: hidden;
+  line-height: 1.85;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*:lang(ar) {
+  letter-spacing: normal !important;
+  word-spacing: 0.06em !important;
+  font-kerning: normal;
+}
+
+p,
+li,
+label,
+summary,
+input,
+button,
+a,
+span {
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.35;
+}
+
+.balanced-text {
+  text-wrap: balance;
+}
+
+.pretty-text {
+  text-wrap: pretty;
+}
+
+.brand-title {
+  font-family: var(--font-latin), "Space Grotesk", sans-serif;
+}
+
+.brand-arabic {
+  font-family: var(--font-arabic), "Almarai", "Cairo", sans-serif;
+}
+
+.img-zoom {
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.06);
+}
+
+.btn-arrow-circle {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .btn-arrow-circle {
+  transform: scale(1.1) rotate(-45deg);
+  background-color: #c39a5c;
+  color: #ffffff;
+  border-color: #c39a5c;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary i {
+  transform: rotate(180deg);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9faf6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c39a5c;
+  border-radius: 10px;
+}
+
+.glass-header {
+  background: rgba(249, 250, 246, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.hero-sky-gradient {
+  background: linear-gradient(180deg, #ebf6ff 0%, #f4faff 40%, #fafdfe 70%, #f9faf6 100%);
+}
