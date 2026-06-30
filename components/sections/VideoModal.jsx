@@ -25,8 +25,8 @@ export default function VideoModal({ open, onClose }) {
 
 export function WhatsAppButton() {
   return (
-    <a href="https://wa.me/966920015243" target="_blank" rel="noreferrer" className="fixed bottom-16 left-6 z-50 bg-[#25D366]/70 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-[0_10px_30px_rgba(37,211,102,0.28)] hover:scale-110 hover:bg-[#25D366]/90 transition-all duration-300 border-2 border-white/90 cursor-pointer backdrop-blur-sm" aria-label="تواصل عبر واتساب">
-      <i className="fa-brands fa-whatsapp" />
+    <a href="tel:920015243" className="fixed bottom-16 left-6 z-50 bg-gold/90 text-navy-950 px-6 h-14 rounded-full flex items-center justify-center text-sm font-bold font-madani shadow-[0_10px_30px_rgba(201,158,89,0.28)] hover:scale-105 hover:bg-gold transition-all duration-300 border-2 border-white/90 cursor-pointer backdrop-blur-sm" aria-label="اتصل بنا">
+      اتصل بنا
     </a>
   );
 }

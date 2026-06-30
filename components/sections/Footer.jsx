@@ -18,8 +18,8 @@ export default function Footer() {
                 <span>920015243</span>
                 <i className="fa-solid fa-phone text-gold" />
               </a>
-              <a href="mailto:social@almashraq-sa.com" className="flex items-center justify-end gap-3 hover:text-gold transition-colors" dir="ltr">
-                <span>social@almashraq-sa.com</span>
+              <a href="mailto:info@almashraq-sa.com" className="flex items-center justify-end gap-3 hover:text-gold transition-colors" dir="ltr">
+                <span>info@almashraq-sa.com</span>
                 <i className="fa-solid fa-envelope text-gold" />
               </a>
             </div>
