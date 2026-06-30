@@ -23,7 +23,15 @@ export const locations = {
     cardDesc: "اتصال مباشر بالطرق السريعة وتراخيص دفاع مدني فئة (أ) لكافة الأنشطة.",
     tag1: "تراخيص دفاع مدني فئة أ",
     tag2: "عزل حراري 100%",
-    map: maps.sadus
+    map: maps.sadus,
+    gallery: [
+      "/sudos/DSC00002.webp",
+      "/sudos/DSC00011.webp",
+      "/sudos/DSC00016.webp",
+      "/sudos/DSC00021.webp",
+      "/sudos/DSC00034.webp",
+      "/sudos/DSC00042.webp"
+    ]
   },
   south: {
     title: "📍 المنصورية – جنوب الرياض",
@@ -34,7 +42,18 @@ export const locations = {
     cardDesc: "بنية تحتية كهربائية تصل إلى 200 أمبير لتغذية خطوط التشغيل والتخزين المبرد.",
     tag1: "كهرباء 200 أمبير",
     tag2: "أبواب تفريغ هيدروليكية",
-    map: maps.south
+    map: maps.south,
+    gallery: [
+      "/Mansoria/DSC00051.webp",
+      "/Mansoria/DSC00056.webp",
+      "/Mansoria/DSC00069.webp",
+      "/Mansoria/DSC00093-1.webp",
+      "/Mansoria/DSC00098-1.webp",
+      "/Mansoria/DSC00109.webp",
+      "/Mansoria/DSC00112-1.webp",
+      "/Mansoria/DSC00116.webp",
+      "/Mansoria/DSC00118-1.webp"
+    ]
   },
   sadus: {
     title: "📍 السلي – شرق الرياض",
@@ -45,7 +64,14 @@ export const locations = {
     cardDesc: "المستودعات الأكثر طلباً، جاهزية للتشغيل تبدأ من مساحة 489 م² حتى 20,200 م².",
     tag1: "مساحات حتى 20,200 م²",
     tag2: "قرب الدائري الثاني",
-    map: maps.suli
+    map: maps.suli,
+    gallery: [
+      "/alsly/WhatsApp-Image-2026-06-30-at-2-35-12-PM.webp",
+      "/alsly/WhatsApp-Image-2026-06-30-at-2-35-12-PM-1.webp",
+      "/alsly/WhatsApp-Image-2026-06-30-at-2-35-12-PM-2.webp",
+      "/alsly/WhatsApp-Image-2026-06-30-at-2-35-13-PM.webp",
+      "/alsly/WhatsApp-Image-2026-06-30-at-2-35-13-PM-1.webp"
+    ]
   }
 };
 

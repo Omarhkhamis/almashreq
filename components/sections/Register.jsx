@@ -1,6 +1,6 @@
 import { SectionTag } from "@/components/ui/Logo";
 
-export default function Register({ submitted, submitting, onSubmit }) {
+export default function Register({ submitted, submitting, submitError, onSubmit }) {
   return (
     <section id="register" className="py-32 bg-stoneGray/20 border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,14 +40,23 @@ export default function Register({ submitted, submitting, onSubmit }) {
               </div>
             )}
 
+            {submitError && (
+              <div className="bg-red-50 border border-red-200 text-red-800 p-5 rounded-2xl mb-6 text-sm font-semibold">
+                <div className="flex items-center gap-3">
+                  <i className="fa-solid fa-circle-exclamation text-xl text-red-600" />
+                  <p>{submitError}</p>
+                </div>
+              </div>
+            )}
+
             <form className="space-y-5" onSubmit={onSubmit}>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2" htmlFor="form-name">الاسم الكريم أو اسم الشركة</label>
-                <input type="text" id="form-name" required className="w-full bg-white border border-gray-200 rounded-xl py-4 px-4 text-navy-950 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-bold shadow-sm" placeholder="أدخل اسمك الكريم هنا..." />
+                <input type="text" id="form-name" name="name" required className="w-full bg-white border border-gray-200 rounded-xl py-4 px-4 text-navy-950 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-bold shadow-sm" placeholder="أدخل اسمك الكريم هنا..." />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2" htmlFor="form-phone">رقم الجوال (الواتساب)</label>
-                <input type="tel" id="form-phone" required dir="ltr" className="w-full text-right bg-white border border-gray-200 rounded-xl py-4 px-4 text-navy-950 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-bold shadow-sm" placeholder="05XXXXXXXX" />
+                <input type="tel" id="form-phone" name="phone" required dir="ltr" className="w-full text-right bg-white border border-gray-200 rounded-xl py-4 px-4 text-navy-950 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-bold shadow-sm" placeholder="05XXXXXXXX" />
               </div>
 
               <button type="submit" disabled={submitting} className="w-full bg-navy-950 hover:bg-gold text-white hover:text-navy-950 font-bold py-4 rounded-xl shadow-md transition-all duration-300 flex justify-center items-center gap-3 cursor-pointer disabled:cursor-wait">

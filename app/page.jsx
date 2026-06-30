@@ -1,5 +1,7 @@
 "use client";
 
+/* global fetch, FormData */
+
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import Navbar from "@/components/sections/Navbar";
@@ -19,6 +21,7 @@ export default function Home() {
   const [activeLocation, setActiveLocation] = useState("suli");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     AOS.init({
@@ -33,20 +36,42 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setSubmitting(true);
     setSubmitted(false);
+    setSubmitError("");
 
-    window.setTimeout(() => {
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          phone: formData.get("phone")
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("send-failed");
+      }
+
       setSubmitting(false);
       setSubmitted(true);
-      event.currentTarget.reset();
+      form.reset();
 
       window.setTimeout(() => {
         setSubmitted(false);
       }, 6000);
-    }, 1800);
+    } catch {
+      setSubmitting(false);
+      setSubmitError("تعذر إرسال الطلب حالياً. الرجاء المحاولة مرة أخرى أو التواصل معنا مباشرة.");
+    }
   }
 
   return (
@@ -54,13 +79,13 @@ export default function Home() {
       <Navbar scrolled={scrolled} />
       <main>
         <Hero />
-        <Partners />
         <Heritage />
         <Locations activeLocation={activeLocation} onSelectLocation={setActiveLocation} />
         <Services />
         <OfficeShowcase />
         <FaqTestimonials />
-        <Register submitted={submitted} submitting={submitting} onSubmit={handleSubmit} />
+        <Partners />
+        <Register submitted={submitted} submitting={submitting} submitError={submitError} onSubmit={handleSubmit} />
       </main>
       <Footer />
       <WhatsAppButton />

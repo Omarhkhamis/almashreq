@@ -1,3 +1,7 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { locations } from "@/components/data";
 import { SectionTag } from "@/components/ui/Logo";
 
@@ -5,6 +9,30 @@ const locationKeys = ["suli", "south", "sadus"];
 
 export default function Locations({ activeLocation, onSelectLocation }) {
   const active = locations[activeLocation];
+  const [activeImageIndex, setActiveImageIndex] = useState(null);
+  const gallery = active.gallery || [];
+  const previewImages = gallery.slice(0, 3);
+  const isGalleryOpen = activeImageIndex !== null;
+
+  useEffect(() => {
+    setActiveImageIndex(null);
+  }, [activeLocation]);
+
+  function openGallery(index) {
+    setActiveImageIndex(index);
+  }
+
+  function closeGallery() {
+    setActiveImageIndex(null);
+  }
+
+  function showPreviousImage() {
+    setActiveImageIndex((currentIndex) => (currentIndex === 0 ? gallery.length - 1 : currentIndex - 1));
+  }
+
+  function showNextImage() {
+    setActiveImageIndex((currentIndex) => (currentIndex === gallery.length - 1 ? 0 : currentIndex + 1));
+  }
 
   return (
     <section id="locations" className="py-32 bg-stoneGray/30 border-y border-gray-200/40 relative overflow-hidden">
@@ -57,6 +85,31 @@ export default function Locations({ activeLocation, onSelectLocation }) {
               </div>
             </div>
 
+            <div className="grid grid-cols-3 gap-3 mb-4">
+              {previewImages.map((image, index) => (
+                <button
+                  key={image}
+                  type="button"
+                  onClick={() => openGallery(index)}
+                  className="group relative h-24 sm:h-32 rounded-2xl overflow-hidden border border-gray-100 bg-stoneGray shadow-inner focus:outline-none focus:ring-2 focus:ring-gold"
+                  aria-label={`فتح صورة ${index + 1} من ${active.shortTitle}`}
+                >
+                  <Image
+                    src={image}
+                    alt={`${active.shortTitle} صورة ${index + 1}`}
+                    fill
+                    sizes="(min-width: 1024px) 18vw, 30vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {index === 2 && gallery.length > 3 ? (
+                    <span className="absolute inset-0 flex items-center justify-center bg-navy-950/55 text-white text-sm sm:text-base font-bold">
+                      +{gallery.length - 3}
+                    </span>
+                  ) : null}
+                </button>
+              ))}
+            </div>
+
             <div className="h-80 w-full rounded-2xl overflow-hidden shadow-inner border border-gray-100 relative">
               <iframe title={active.title} src={active.map} width="100%" height="100%" style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }} allowFullScreen loading="lazy" />
             </div>
@@ -76,6 +129,51 @@ export default function Locations({ activeLocation, onSelectLocation }) {
           </div>
         </div>
       </div>
+
+      {isGalleryOpen ? (
+        <div className="fixed inset-0 z-50 bg-navy-950/90 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label={`ألبوم صور ${active.shortTitle}`}>
+          <button
+            type="button"
+            onClick={closeGallery}
+            className="absolute top-4 left-4 w-11 h-11 rounded-full bg-white/10 border border-white/15 text-white hover:bg-gold hover:text-navy-950 transition-colors flex items-center justify-center"
+            aria-label="إغلاق الألبوم"
+          >
+            <i className="fa-solid fa-xmark" />
+          </button>
+
+          <button
+            type="button"
+            onClick={showNextImage}
+            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 border border-white/15 text-white hover:bg-gold hover:text-navy-950 transition-colors flex items-center justify-center"
+            aria-label="الصورة التالية"
+          >
+            <i className="fa-solid fa-chevron-right" />
+          </button>
+
+          <div className="relative w-full max-w-5xl h-[68vh] sm:h-[76vh]">
+            <Image
+              src={gallery[activeImageIndex]}
+              alt={`${active.shortTitle} صورة ${activeImageIndex + 1}`}
+              fill
+              sizes="100vw"
+              className="object-contain"
+              priority
+            />
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/45 px-4 py-2 text-white text-xs font-bold">
+              {activeImageIndex + 1} / {gallery.length}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={showPreviousImage}
+            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 border border-white/15 text-white hover:bg-gold hover:text-navy-950 transition-colors flex items-center justify-center"
+            aria-label="الصورة السابقة"
+          >
+            <i className="fa-solid fa-chevron-left" />
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }

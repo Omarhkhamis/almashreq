@@ -25,13 +25,16 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-3 mt-8">
-              <a href="#" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="تويتر">
+              <a href="https://x.com/almashriq20" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="إكس">
                 <i className="fa-brands fa-x-twitter" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="انستجرام">
+              <a href="https://www.instagram.com/almashriq20" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="انستجرام">
                 <i className="fa-brands fa-instagram" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="لينكد إن">
+              <a href="https://www.tiktok.com/@almashriq20" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="تيك توك">
+                <i className="fa-brands fa-tiktok" />
+              </a>
+              <a href="https://www.linkedin.com/company/المشرق-للاستثمار/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-navy-950 hover:bg-gold hover:border-gold transition-all duration-300 flex items-center justify-center" aria-label="لينكد إن">
                 <i className="fa-brands fa-linkedin-in" />
               </a>
             </div>

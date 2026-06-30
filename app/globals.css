@@ -108,3 +108,13 @@ details[open] summary i {
 .hero-sky-gradient {
   background: linear-gradient(180deg, #ebf6ff 0%, #f4faff 40%, #fafdfe 70%, #f9faf6 100%);
 }
+
+.partners-slider {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-x;
+}
+
+.partners-slider::-webkit-scrollbar {
+  display: none;
+}
